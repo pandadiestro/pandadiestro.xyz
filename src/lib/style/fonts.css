@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'EBGaramond';
+    font-style: normal;
+    src:
+        url("$lib/style/fonts/EBGaramond/EBGaramond-VariableFont_wght.ttf") format(truetype);
+}
+
+

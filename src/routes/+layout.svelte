@@ -93,7 +93,7 @@
         display: flex;
         flex-flow: column;
         width: 70%;
-        top: 60px;
+        margin-top: 60px;
 
 
         align-items: center;
@@ -109,9 +109,46 @@
         width: 100%;
         height: 100%;
 
-        flex-flow: row;
+        flex-direction: row;
         font-family: 'EBGaramond';
         color: #fbf1c7;
+    }
+
+    @media screen and (width <= 1250px) {
+        .maincontainer {
+            height: unset !important;
+            overflow-y: auto;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        header {
+            height: unset !important;
+            width: 100% !important;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        main {
+            width: 90% !important;
+        }
+
+        .namecontainer {
+            align-self: auto !important;
+            margin-top: 50px;
+            left: auto !important;
+            bottom: auto !important;
+            font-size: 60px !important;
+        }
+
+        .domorice {
+            height: 100px !important;
+        }
+
+        .content {
+            width: unset !important;
+            overflow: unset !important;
+        }
     }
 
     header {

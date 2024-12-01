@@ -130,7 +130,8 @@
         }
 
         main {
-            width: 90% !important;
+            width: 80% !important;
+            max-width: 600px !important;
         }
 
         .namecontainer {
@@ -146,7 +147,7 @@
         }
 
         .content {
-            width: unset !important;
+            width: 100% !important;
             overflow: unset !important;
         }
     }
@@ -178,7 +179,7 @@
         display: flex;
         position: relative;
         width: 50%;
-        margin: 50px;
+        margin-block: 50px;
 
         flex-flow: column;
         align-items: center;

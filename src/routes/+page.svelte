@@ -6,7 +6,7 @@
     import { blinkies } from "$lib/blinkies"
 </script>
 
-<div class="aboutme">{strings["main content"]}</div>
+<div class="aboutme">{@html strings["main content"]}</div>
 <div class="socials">
     <a
         style="display: contents;"
@@ -45,7 +45,6 @@
 <style>
     .aboutme {
         position: relative;
-        display: flex;
     }
 
     .socials {
@@ -56,6 +55,21 @@
         gap: 30px;
         margin-block: 60px;
 
+    }
+
+    :global(.mailto){
+        display: inline-block;
+        text-decoration: none;
+        font: inherit;
+        color: inherit;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #ffffff00;
+        transition-duration: 0.1s;
+    }
+
+    :global(.mailto):hover {
+        border-bottom-color: #fbf1c730;
     }
 
     .socials>a>img {

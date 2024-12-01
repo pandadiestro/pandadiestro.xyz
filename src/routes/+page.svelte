@@ -103,6 +103,12 @@
         height: 100%;
     }
 
+    .cards {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+    }
+
     .cardelem {
         display: flex;
         position: relative;
@@ -110,6 +116,7 @@
     }
 
     .cardelem>img {
+        width: 100%;
         border-radius: 5px;
     }
 </style>

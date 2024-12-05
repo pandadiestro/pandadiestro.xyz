@@ -6,6 +6,11 @@
     import { blinkies } from "$lib/blinkies"
 </script>
 
+<svelte:head>
+    <meta name="description" content="pandadiestro's about me page, background, and projects"/>
+    <title>about me</title>
+</svelte:head>
+
 <div class="aboutme">{@html strings["main content"]}</div>
 <div class="socials">
     <a

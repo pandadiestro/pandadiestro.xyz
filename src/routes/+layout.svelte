@@ -1,6 +1,6 @@
 <script lang="ts">
     import "$lib/style/fonts.css"
-    import domorice from "$lib/assets/domorice.png"
+    import domorice from "$lib/assets/domorice.webp"
 
     const { children } = $props();
 
@@ -28,6 +28,7 @@
     }
 </script>
 
+<div id="neko-container"></div>
 <div class="maincontainer">
     <header>
         <div class="namecontainer">

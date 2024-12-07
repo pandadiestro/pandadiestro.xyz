@@ -49,7 +49,7 @@
                         href="/"
                     >whoami</a>
                 </li>
-                <li class="sectionnone" role="none">·</li>
+                <li class="sectionnone">·</li>
                 <li class="sectionelem">
                     <a
                         bind:this={elems.arr[1]}
@@ -58,7 +58,7 @@
                         href="/blog"
                     >blog</a>
                 </li>
-                <li class="sectionnone" role="none">·</li>
+                <li class="sectionnone">·</li>
                 <li class="sectionelem">
                     <a
                         bind:this={elems.arr[2]}
@@ -70,7 +70,7 @@
             </ul>
         </nav>
         <main>
-            <div class="separator" role="none"></div>
+            <div class="separator"></div>
             {@render children()}
         </main>
     </div>

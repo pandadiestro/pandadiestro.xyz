@@ -1,7 +1,15 @@
 {
 	"name": "pandadiestro.xyz",
 	"version": "0.0.1",
-	"type": "module",
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^3.3.1",
+		"@sveltejs/kit": "^2.11.1",
+		"@sveltejs/vite-plugin-svelte": "^4.0.3",
+		"svelte": "^5.14.0",
+		"svelte-check": "^4.1.1",
+		"typescript": "^5.7.2",
+		"vite": "^5.4.11"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -9,16 +17,5 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^3.3.1",
-		"@sveltejs/kit": "^2.9.0",
-		"@sveltejs/vite-plugin-svelte": "^4.0.2",
-		"svelte": "^5.6.2",
-		"svelte-check": "^4.1.1",
-		"typescript": "^5.7.2",
-		"vite": "^5.4.11"
-	},
-	"dependencies": {
-		"lorem-ipsum": "^2.0.8"
-	}
+	"type": "module"
 }

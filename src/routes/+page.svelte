@@ -35,7 +35,7 @@
 <div class="blinkies">
     {#each blinkies as blinky}
         <span class="blinky">
-            <img src={blinky.src} alt={blinky.alt} />
+            <img src={blinky.src} alt={blinky.alt} width="200px" />
         </span>
     {/each}
 </div>
@@ -100,12 +100,7 @@
     .blinky {
         position: relative;
         display: flex;
-        height: 25px;
         margin-block: 1px;
-    }
-
-    .blinky>img {
-        height: 100%;
     }
 
     .cards {

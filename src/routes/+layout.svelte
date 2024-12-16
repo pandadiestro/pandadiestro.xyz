@@ -1,6 +1,6 @@
 <script lang="ts">
     import "$lib/style/fonts.css"
-    import domorice from "$lib/assets/domorice.webp"
+    import { DomoriceSrcSet } from "$lib/assets/domorice/"
 
     const { children } = $props();
 
@@ -33,7 +33,11 @@
     <header>
         <div class="namecontainer">
             <span>
-                <img class="domorice" src={domorice} alt="domo-kun eating rice" />
+                <img
+                    srcset="{DomoriceSrcSet[0]} 100w, {DomoriceSrcSet[1]} 140w"
+                    sizes="(max-width: 1250px) 100px, 140px"
+                    alt="domo-kun eating rice"
+                />
             </span>
             <span>pandadiestro</span>
         </div>
@@ -143,10 +147,6 @@
             font-size: 60px !important;
         }
 
-        .domorice {
-            height: 100px !important;
-        }
-
         .content {
             width: 100% !important;
             overflow: unset !important;
@@ -170,10 +170,6 @@
         left: 50px;
 
         font-size: 96px;
-    }
-
-    .domorice {
-        height: 140px;
     }
 
     .content {

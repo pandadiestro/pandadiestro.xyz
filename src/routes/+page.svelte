@@ -35,7 +35,12 @@
 <div class="blinkies">
     {#each blinkies as blinky}
         <span class="blinky">
-            <img src={blinky.src} alt={blinky.alt} width="200px" height="auto" />
+            <img
+                src={blinky.src}
+                alt={blinky.alt}
+                width="180px"
+                height="24px"
+            />
         </span>
     {/each}
 </div>
@@ -101,10 +106,6 @@
         position: relative;
         display: flex;
         margin-block: 1px;
-    }
-
-    .blinky>img {
-        aspect-ratio: auto 450 / 60;
     }
 
     .cards {

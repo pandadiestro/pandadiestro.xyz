@@ -36,9 +36,8 @@
                 <img
                     srcset="{DomoriceSrcSet[0]} 100w, {DomoriceSrcSet[1]} 140w"
                     sizes="(max-width: 1250px) 100px, 140px"
-                    height="auto"
                     alt="domo-kun eating rice"
-                    style="aspect-ratio: auto 1/1;"
+                    style="aspect-ratio: 1/1;"
                 />
             </span>
             <span>pandadiestro</span>

@@ -1,8 +1,8 @@
-import blinki_2 from "$lib/assets/blinkies/blinkiesCafe-Kn.gif"
-import blinki_3 from "$lib/assets/blinkies/blinkiesCafe-Wu.gif"
-import blinki_4 from "$lib/assets/blinkies/blinkiesCafe-aI.gif"
-import blinki_5 from "$lib/assets/blinkies/blinkiesCafe-d3.gif"
-import blinki_6 from "$lib/assets/blinkies/blinkiesCafe-xd.gif"
+import drm from "$lib/assets/blinkies/stop-drm.gif"
+import tech from "$lib/assets/blinkies/i-love-tech.gif"
+import music from "$lib/assets/blinkies/i-love-music.gif"
+import svelte from "$lib/assets/blinkies/made-in-svelte.gif"
+import debian from "$lib/assets/blinkies/powered-by-debian.gif"
 
 type Blinky = {
   src: string,
@@ -11,24 +11,24 @@ type Blinky = {
 
 export const blinkies: Blinky[] = [
   {
-    src: blinki_2,
-    alt: "animated gif that states: 'powered by svelte'",
+    src: drm,
+    alt: "animated gif that states: 'stop DRM!'",
   },
   {
-    src: blinki_3,
-    alt: "animated gif that states: 'ditch DRM!!!'",
+    src: tech,
+    alt: "animated gif that states: 'I love tech!'",
   },
   {
-    src: blinki_4,
-    alt: "animated gif that states: 'I love the music!'",
+    src: music,
+    alt: "animated gif that states: 'I love music'",
   },
   {
-    src: blinki_5,
+    src: svelte,
+    alt: "animated gif that states: 'made in svelte'",
+  },
+  {
+    src: debian,
     alt: "animated gif that states: 'powered by debian'",
-  },
-  {
-    src: blinki_6,
-    alt: "animated gif that states: 'systems programming'",
   },
 ]
 

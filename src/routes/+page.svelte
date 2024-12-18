@@ -38,8 +38,8 @@
             <img
                 src={blinky.src}
                 alt={blinky.alt}
-                width="180px"
-                height="24px"
+                width="150px"
+                height="20px"
             />
         </span>
     {/each}

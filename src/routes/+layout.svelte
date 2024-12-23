@@ -1,34 +1,28 @@
 <script lang="ts">
     import "$lib/style/fonts.css"
     import { DomoriceSrcSet } from "$lib/assets/domorice/"
+    import { page } from "$app/state";
 
     const { children } = $props();
 
-    const elems_len = 5;
-    const elems = {
-        arr: new Array<HTMLAnchorElement>(elems_len),
-        curr: 0,
-    }
+    const nav_routes = [
+        {
+            href: "/",
+            label: "whoami",
+        },
+        {
+            href: "/blog",
+            label: "blog",
+        },
+        {
+            href: "/publications",
+            label: "publications",
+        },
+    ]
 
-    const newClickHandler = (index: number) => {
-        return () => {
-            if (index == elems.curr)
-                return
-
-            const curr_el = elems.arr[elems.curr]
-            curr_el.classList.remove('selected')
-            curr_el.classList.add('unselected')
-
-            const new_curr_el = elems.arr[index]
-            new_curr_el.classList.remove('unselected')
-            new_curr_el.classList.add('selected')
-
-            elems.curr = index
-        }
-    }
+    const current_path = $derived(page.url.pathname);
 </script>
 
-<div id="neko-container"></div>
 <div class="maincontainer">
     <header>
         <div class="namecontainer">
@@ -46,33 +40,17 @@
     <div class="content">
         <nav class="sections">
             <ul class="sectionslist">
-                <li class="sectionelem">
-                    <a
-                        bind:this={elems.arr[0]}
-                        class="selected"
-                        onclick={newClickHandler(0)}
-                        href="/"
-                    >whoami</a>
-                </li>
-                <li class="sectionnone">·</li>
-                <li class="sectionelem">
-                    <a
-                        bind:this={elems.arr[1]}
-                        class="unselected"
-                        onclick={newClickHandler(1)}
-                        href="/blog"
-                    >blog</a>
-                </li>
-                <li class="sectionnone">·</li>
-                <li class="sectionelem">
-                    <a
-                        bind:this={elems.arr[2]}
-                        class="unselected"
-                        onclick={newClickHandler(2)}
-                        href="/publications"
-                    >publications</a>
-                </li>
-            </ul>
+                {#each nav_routes as route, index}
+                    <li class="sectionelem">
+                        <a
+                            class:selected={current_path === route.href}
+                            href={route.href}
+                        >{route.label}</a>
+                    </li>
+                    {#if index < nav_routes.length - 1}
+                        <li class="sectionnone">·</li>
+                    {/if}
+                {/each}
         </nav>
         <main>
             <div class="separator"></div>
@@ -213,6 +191,7 @@
         user-select: none;
         border-bottom-style: solid;
         border-bottom-width: 2px;
+        border-bottom-color: #ffffff00;
 
         text-decoration: none;
         color: inherit;
@@ -227,12 +206,8 @@
         border-bottom-color: #fbf1c7;
     }
 
-    .selected {
-        border-bottom-color: #fbf1c7;
-    }
-
-    .unselected {
-        border-bottom-color: #ffffff00;
+    :global(.selected) {
+        border-bottom-color: #fbf1c7 !important;
     }
 </style>
 

@@ -122,6 +122,7 @@
             margin-top: 50px;
             left: auto !important;
             bottom: auto !important;
+            font-size: 60px !important;
         }
 
         .content {

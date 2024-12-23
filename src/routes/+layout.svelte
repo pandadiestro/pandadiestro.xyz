@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "$lib/style/fonts.css"
     import { DomoriceSrcSet } from "$lib/assets/domorice/"
     import { page } from "$app/state";
 

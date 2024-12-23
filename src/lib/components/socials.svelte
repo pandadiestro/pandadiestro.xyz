@@ -30,7 +30,6 @@
 
         align-items: end;
         gap: 30px;
-        margin-block: 60px;
 
     }
 

@@ -21,15 +21,29 @@
 
 <div class="aboutme">{@html strings["main content"]}</div>
 
+<div class="big-separator"></div>
 <Socials />
+<div class="big-separator"></div>
 <Blinkies />
+<div class="aboutme">{@html strings["presentation"]}</div>
+<div class="big-separator"></div>
 
 {#each data.ghrepos as ghrepo }
     <Ghrepo data={ghrepo} />
+    <div class="repo-separator"></div>
 {/each}
 
 <style>
+    .repo-separator {
+        margin-block: 10px;
+    }
+
+    .big-separator {
+        margin-block: 20px;
+    }
+
     .aboutme {
+        width: 100%;
         position: relative;
     }
 </style>

@@ -27,11 +27,10 @@
         <div class="namecontainer">
             <span>
                 <img
-                    src="{DomoriceSrcSet[1]}"
-                    width="140px"
-                    height="140px"
-                    alt="domo-kun eating rice"
+                    srcset="{DomoriceSrcSet[0]} 100w, {DomoriceSrcSet[1]} 140w"
+                    sizes="(max-width: 1250px) 100px, 140px"
                     style="aspect-ratio: 1/1;"
+                    alt="domo-kun eating rice"
                 />
             </span>
             <span>pandadiestro</span>

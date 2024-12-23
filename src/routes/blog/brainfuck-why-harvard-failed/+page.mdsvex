@@ -1,0 +1,184 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+# Brainfuck
+
+*and how the harvard architecture (didn't really) fail*
+
+For quite a long time, esolangs like Brainfuck have struck something in me, kind
+of like how curiosity would feel when mixed with the fear of complexity.
+Recently, however, I found myself writing a Brainfuck interpreter for fun as the
+chosen weekend project.
+
+Brainfuck turned out being simply a virtual turing machine with basic I/O
+capabilities. It all starts with a "memory" band of data (or bits) all of which
+are grouped in subdata blocks (or bytes). All of Brainfuck's operations are
+performed over this memory band and its subblocks, i.e. all programs are made to
+move around and mutate this band, just like in Turing's original computer
+machine model.
+
+```
+----------------------||---||----------------------
+  | 0 | 0 | 0 | 0 | 0 || 0 || 0 | 0 | 0 | 0 | 0 |
+----------------------||---||----------------------
+        ^   ^            ^
+tape ---+   |            |
+            |            |
+cell -------+            |
+                         |
+head (pointer) ----------+
+```
+
+This is incredibly* flexible, as, in the context of nowadays's memory models,
+you can assign $2^{8}$ possible values to each cell and, as such, support all of
+the ascii and extended-ascii characters for text printing, you can "imitate"
+function arguments by defining delimiters (such as the nul '\0' terminator),
+make an infinitely long text editor, etc.
+
+> \*incredible: non-credible
+
+However, this memory-and-program mental model leaves a singular incognito
+variable floating around:
+
+## Where are programs stored?
+
+> In his 1948 essay, "Intelligent Machinery", Turing wrote that his machine
+> consists of:
+> > ...an unlimited memory capacity obtained in the form of an infinite tape marked
+> > out into squares, on each of which a symbol could be printed. At any moment
+> > there is one symbol in the machine; it is called the scanned symbol. The machine
+> > can alter the scanned symbol, and its behavior is in part determined by that
+> > symbol, but the symbols on the tape elsewhere do not affect the behavior of the
+> > machine. However, the tape can be moved back and forth through the machine, this
+> > being one of the elementary operations of the machine. Any symbol on the tape
+> > may therefore eventually have an innings.
+> >
+> > \- Turing 1948, p. 3
+>
+> \- [Wikipedia](https://en.wikipedia.org/wiki/Turing_machine)
+
+This definition strikes a little too close to home; however, this small eVxcempt
+does not define where are the rules that mandate the head supposed to be at. For
+this, Turing defined a "head" which was programmed with a finite table of
+"instructions" which defined where would the head go, what would it do or what
+new state would it take based on the current block's value.
+
+If we were to make an analogy of the Turing Machine and modern computers, this
+set of instructions may be close to what we know as a *programs*, which are
+stored in memory.
+
+> In it [On Computable Numbers, with an Application to the Entscheidungsproblem,
+> by Alan Turing] he [Alan Turing] described a hypothetical machine he called a
+> universal computing machine, now known as the "Universal Turing machine". The
+> hypothetical machine had an infinite store (memory in today's terminology)
+> that contained both instructions and data.
+>
+> \- [Wikipedia](https://en.wikipedia.org/wiki/Von_Neumann_architecture)
+
+Von Neumann would later on define a proto-architecture that influenced most
+modern computers, based on this stored-program approach.
+
+However, when writing my Brainfuck interpreter, I realized how the model I built
+was far from storing the actual program in the same memory that was used by it.
+
+```zig
+const Runtime = struct {
+    ...
+
+    pub fn execProg(self: *Self, program: *std.ArrayList(bytec.BfBytecodeOp)) !void {
+        const program_slice = program.items;
+        var program_counter: usize = 0;
+
+        const stdout = std.io.getStdOut().writer().any();
+        while (program_counter < program_slice.len) {
+            const memval = try self.memory.fetch();
+
+            switch (program_slice[program_counter].raw_op) {
+                ...
+```
+
+*pardon the mess of my code*
+
+As you can see, I allocate a memory block for the runtime and then I execute the
+program, which, by the time I call `execProg`, is already stored somewhere else.
+This aligns more with another computer model which is not that popular nowadays.
+
+## The Harvard Architecture
+
+> The Harvard architecture is a computer architecture with separate storage and
+> signal pathways for instructions and data. It is often contrasted with the von
+> Neumann architecture, where program instructions and data share the same
+> memory and pathways. This architecture is often used in real-time processing
+> or low-power applications.
+>
+> \- [Wikipedia](https://en.wikipedia.org/wiki/Harvard_architecture)
+
+This relates to what I did for
+[brainkit](https://github.com/pandadiestro/brainkit) because the line where I
+fetch program instructions (`program`) is different than the one where these
+instructions act (`Runtime::memory`).
+
+In theory, the Harvard architecture allows for a parallelizable streamlined
+access to programs, where a Harvard computer can read and execute instructions
+and memory at the same time, and memory and for an isolated environment for
+programs.
+
+> This allows, for example, data to be read from disk storage into memory and
+> then executed as code, or self-optimizing software systems using technologies
+> such as just-in-time compilation to write machine code into their own memory
+> and then later execute it. Another example is self-modifying code, which
+> allows a program to modify itself.
+>
+> \- [Wikipedia](https://en.wikipedia.org/wiki/Modified_Harvard_architecture)
+
+*Why was this model not as popular as Von Neumann's one?*
+
+Judging by what I've been reading, the Harvard computer model, when implemented
+purely, was (and is, in some cases) way less flexible to work with due to the
+requirement for different sets of instructions (and functions).
+
+There is also a **modified** Harvard model, which *is* used nowadays by most
+computer architectures. Separated memory spaces physically is something that the
+CPU ultimately will not really differentiate and:
+
+> [...] internally and largely invisible to the user, most designs have separate
+> processor caches for the instructions and data, with separate pathways into
+> the processor for each.
+>
+> \- [Wikipedia](https://en.wikipedia.org/wiki/Harvard_architecture)
+
+The Harvard Architecture never lost the war of computer architectures; in fact,
+it became an integral part as a concept to modern computing.
+
+<style>
+    a, a:link, a:visited, a:hover, a:active {
+        color: inherit;
+    }
+
+    h1 {
+        margin-bottom: 0px;
+    }
+
+    blockquote {
+        margin: 0px !important;
+        border-left-width: 1px;
+        border-left-style: solid;
+        padding-left: 20px;
+    }
+
+    :global(.katex) {
+        font-size: 90% !important;
+    }
+
+    :global(pre) {
+        background-color: #141414;
+        padding: 15px;
+        border-radius: 3px;
+    }
+
+    :global(code) {
+        font-size: 14px;
+        background-color: #141414;
+        padding-inline: 4px;
+    }
+</style>
+

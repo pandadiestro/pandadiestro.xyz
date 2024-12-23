@@ -82,7 +82,7 @@
         align-items: center;
         text-align: justify;
 
-        font-size: 25px;
+        font-size: 22px;
     }
 
     .maincontainer {
@@ -159,8 +159,6 @@
         flex-flow: column;
         align-items: center;
 
-        font-size: 32px;
-
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -178,6 +176,7 @@
         display: flex;
         position: relative;
 
+        font-size: 32px;
         list-style: none;
         padding: 0px;
         margin: 0px;
@@ -193,6 +192,7 @@
         border-bottom-color: #ffffff00;
 
         text-decoration: none;
+
         color: inherit;
     }
 

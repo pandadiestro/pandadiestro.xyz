@@ -27,8 +27,9 @@
         <div class="namecontainer">
             <span>
                 <img
-                    srcset="{DomoriceSrcSet[0]} 100w, {DomoriceSrcSet[1]} 140w"
-                    sizes="(max-width: 1250px) 100px, 140px"
+                    src="{DomoriceSrcSet[1]}"
+                    width="140px"
+                    height="140px"
                     alt="domo-kun eating rice"
                     style="aspect-ratio: 1/1;"
                 />
@@ -122,7 +123,6 @@
             margin-top: 50px;
             left: auto !important;
             bottom: auto !important;
-            font-size: 60px !important;
         }
 
         .content {

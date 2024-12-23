@@ -56,7 +56,7 @@ variable floating around:
 >
 > \- [Wikipedia](https://en.wikipedia.org/wiki/Turing_machine)
 
-This definition strikes a little too close to home; however, this small eVxcempt
+This definition strikes a little too close to home; however, this small excempt
 does not define where are the rules that mandate the head supposed to be at. For
 this, Turing defined a "head" which was programmed with a finite table of
 "instructions" which defined where would the head go, what would it do or what
@@ -100,7 +100,7 @@ const Runtime = struct {
 
 As you can see, I allocate a memory block for the runtime and then I execute the
 program, which, by the time I call `execProg`, is already stored somewhere else.
-This aligns more with another computer model which is not that popular nowadays.
+This aligns more with another computer model which is not that popular nowadays:
 
 ## The Harvard Architecture
 
@@ -118,9 +118,9 @@ fetch program instructions (`program`) is different than the one where these
 instructions act (`Runtime::memory`).
 
 In theory, the Harvard architecture allows for a parallelizable streamlined
-access to programs, where a Harvard computer can read and execute instructions
-and memory at the same time, and memory and for an isolated environment for
-programs.
+access to programs, where a single Harvard computer can read and execute
+instructions and memory at the same time, and memory and for an isolated
+environment for programs.
 
 > This allows, for example, data to be read from disk storage into memory and
 > then executed as code, or self-optimizing software systems using technologies

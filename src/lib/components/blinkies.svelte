@@ -1,14 +1,15 @@
 <script lang="ts">
-    import drm from "$lib/assets/blinkies/stop-drm.gif"
-    import tech from "$lib/assets/blinkies/i-love-tech.gif"
-    import music from "$lib/assets/blinkies/i-love-music.gif"
-    import svelte from "$lib/assets/blinkies/made-in-svelte.gif"
-    import debian from "$lib/assets/blinkies/powered-by-debian.gif"
+    import drm from "$lib/assets/blinkies/stop-drm.gif";
+    import tech from "$lib/assets/blinkies/i-love-tech.gif";
+    import music from "$lib/assets/blinkies/i-love-music.gif";
+    import svelte from "$lib/assets/blinkies/made-in-svelte.gif";
+    import debian from "$lib/assets/blinkies/powered-by-debian.gif";
+    import Socials from "./socials.svelte";
 
     type Blinky = {
-        src: string,
-        alt: string,
-    }
+        src: string;
+        alt: string;
+    };
 
     export const blinkies: Blinky[] = [
         {
@@ -34,6 +35,14 @@
     ];
 </script>
 
+<span class="blinky">
+    <a href="https://blinkies.cafe" target="_blank">
+        <img
+            src="https://blinkies.cafe/b/display/blinkiesCafe-badge.gif"
+            alt="blinkies.cafe | make your own blinkies!"
+        />
+    </a>
+</span>
 <div class="blinkies">
     {#each blinkies as blinky}
         <span class="blinky">
@@ -46,6 +55,7 @@
         </span>
     {/each}
 </div>
+
 <style>
     .blinkies {
         position: relative;
@@ -63,6 +73,8 @@
         position: relative;
         display: flex;
         margin-block: 1px;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
     }
-
 </style>

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import gh_logo from "$lib/assets/github.svg"
-    import x_logo from "$lib/assets/x.svg"
+    import gh_logo from "$lib/assets/socials/github.svg"
+    import x_logo from "$lib/assets/socials/x.svg"
 </script>
 
 <div class="socials">
@@ -31,6 +31,9 @@
         align-items: end;
         gap: 30px;
 
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
     }
 
     :global(.mailto){

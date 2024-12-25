@@ -57,7 +57,7 @@
         position: relative;
         display: flex;
 
-        width: 500px;
+        width: 350px;
 
         flex-direction: column;
         text-align: left;

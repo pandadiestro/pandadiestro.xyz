@@ -22,16 +22,16 @@ move around and mutate this band, just like in Turing's original computer
 machine model.
 
 ```
-----------------------||---||----------------------
-  | 0 | 0 | 0 | 0 | 0 || 0 || 0 | 0 | 0 | 0 | 0 |
-----------------------||---||----------------------
-        ^   ^            ^
-        |   |            |
-tape ---+   |            |
-            |            |
-cell -------+            |
-                         |
-head (pointer) ----------+
+---------------||---||---------------
+ 0 | 0 | 0 | 0 || 0 || 0 | 0 | 0 | 0
+-------------^-||---||---------------
+        ^    |    ^
+        |    |    |
+tape ---+    |    |
+             |    |
+cell --------+    |
+                  |
+head (pointer) ---+
 ```
 
 This is incredibly* flexible, as, in the context of nowadays's memory models,
@@ -154,37 +154,4 @@ CPU ultimately will not really differentiate and:
 
 The Harvard Architecture never lost the war of computer architectures; in fact,
 it became an integral part as a concept to modern computing.
-
-<style>
-    a, a:link, a:visited, a:hover, a:active {
-        color: inherit;
-    }
-
-    h1 {
-        margin-bottom: 0px;
-    }
-
-    blockquote {
-        margin: 0px !important;
-        border-left-width: 1px;
-        border-left-style: solid;
-        padding-left: 20px;
-    }
-
-    :global(.katex) {
-        font-size: 90% !important;
-    }
-
-    :global(pre) {
-        background-color: #141414;
-        padding: 15px;
-        border-radius: 3px;
-        line-height: 1rem;
-    }
-
-    :global(code) {
-        font-size: 13px;
-        background-color: #141414;
-    }
-</style>
 

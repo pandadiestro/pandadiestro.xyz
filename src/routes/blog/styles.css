@@ -1,0 +1,38 @@
+a, a:link, a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+blockquote {
+    margin: 0px !important;
+    border-left-width: 1px;
+    border-left-style: solid;
+    padding-left: 20px;
+}
+
+.katex {
+    font-size: 90% !important;
+}
+
+pre {
+    max-width: 95%;
+    background-color: #141414;
+    padding: 15px;
+    border-radius: 3px;
+    line-height: 0.9rem;
+    overflow-x: auto;
+}
+
+code {
+    font-size: 13px;
+    background-color: #141414;
+}
+
+@media screen and (width <= 1250px) {
+    code {
+        font-size: 0.8rem;
+    }
+}

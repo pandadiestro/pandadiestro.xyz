@@ -57,7 +57,7 @@
         position: relative;
         display: flex;
 
-        width: 350px;
+        width: 450px;
 
         flex-direction: column;
         text-align: left;
@@ -67,6 +67,12 @@
         background-color: #151718;
 
         transition-duration: 0.2s;
+    }
+
+    @media screen and (width <= 1250px) {
+        .card-container {
+            width: 350px !important;
+        }
     }
 
     .card-container:hover {

@@ -1,16 +1,34 @@
+<script lang="ts">
+    type BlogEntry = {
+        title: string,
+        url: string,
+        date: string,
+    }
+
+    const blog_entries: BlogEntry[] = [
+        {
+            title: "Brainfuck, and how the harvard architecture (didn't really) fail",
+            url: "/blog/brainfuck-why-harvard-failed",
+            date: "Mon 23 Dec (2024)"
+        }
+    ];
+</script>
+
 <svelte:head>
     <meta name="description" content="pandadiestro's personal blog entries" />
     <title>personal blog</title>
 </svelte:head>
 
-<div class="article-link">
-    <span class="article-title">
-        <a
-            href="/blog/brainfuck-why-harvard-failed"
-        >Brainfuck, and how the harvard architecture failed</a>
-    </span>
-    <span class="article-date">Mon 23 Dec (2024)</span>
-</div>
+{#each blog_entries as entry}
+    <div class="article-link">
+        <div class="article-title">
+            <a
+                href={entry.url}
+            >{entry.title}</a>
+        </div>
+        <div class="article-date">{entry.date}</div>
+    </div>
+{/each}
 
 <style>
     a,
@@ -25,21 +43,13 @@
         margin-block: 20px;
         position: relative;
         display: flex;
-        flex-flow: row wrap;
+        flex-direction: column;
         width: 100%;
-        align-items: end;
-    }
-
-    .article-title {
-        position: absolute;
-        left: 0px;
+        align-items: baseline;
     }
 
     .article-date {
-        position: absolute;
-        left: auto;
-        margin: auto;
-        right: 0px;
+        position: relative;
         font-size: 80%;
         text-decoration: none;
     }

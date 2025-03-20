@@ -3,6 +3,7 @@
     import type { PageData } from "./$types";
     import Ghrepo from "$lib/components/ghrepo.svelte";
     import Socials from "$lib/components/socials.svelte";
+    import Blinkies from "$lib/components/blinkies.svelte";
 
     type Props = {
         data: PageData;
@@ -26,6 +27,8 @@
 <Socials />
 
 <div class="big-separator"></div>
+
+<Blinkies />
 
 <div class="aboutme">{@html strings["presentation"]}</div>
 

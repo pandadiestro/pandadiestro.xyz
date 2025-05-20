@@ -27,10 +27,10 @@
         <div class="namecontainer">
             <span>
                 <img
-                    srcset="{DomoriceSrcSet[0]} 100w, {DomoriceSrcSet[1]} 140w"
-                    sizes="(max-width: 1250px) 100px, 140px"
-                    style="aspect-ratio: 1/1;"
-                    alt="domo-kun eating rice"
+                srcset="{DomoriceSrcSet[0]} 100w, {DomoriceSrcSet[1]} 140w"
+                sizes="(max-width: 1250px) 100px, 140px"
+                style="aspect-ratio: 1/1;"
+                alt="domo-kun eating rice"
                 />
             </span>
             <span>pandadiestro</span>
@@ -44,12 +44,13 @@
                         <a
                             class:selected={current_path === route.href}
                             href={route.href}
-                        >{route.label}</a>
+                            >{route.label}</a>
                     </li>
                     {#if index < nav_routes.length - 1}
                         <li class="sectionnone">·</li>
                     {/if}
                 {/each}
+            </ul>
         </nav>
         <main>
             <div class="separator"></div>

@@ -25,15 +25,15 @@
 <div class="maincontainer">
     <header>
         <div class="namecontainer">
-            <span>
+            <div class="icon">
                 <img
                 srcset="{DomoriceSrcSet[0]} 100w, {DomoriceSrcSet[1]} 140w"
                 sizes="(max-width: 1250px) 100px, 140px"
                 style="aspect-ratio: 1/1;"
                 alt="domo-kun eating rice"
                 />
-            </span>
-            <span>pandadiestro</span>
+            </div>
+            <div class="label">pandadiestro</div>
         </div>
     </header>
     <div class="content">
@@ -75,9 +75,11 @@
     main {
         position: relative;
         display: flex;
+
         flex-flow: column;
-        width: 70%;
-        margin-top: 60px;
+        width: 80%;
+		max-width: 750px;
+        margin-top: 50px;
 
 
         align-items: center;
@@ -91,77 +93,51 @@
         display: flex;
 
         width: 100%;
-        height: 100%;
+		overflow-y: auto;
 
-        flex-direction: row;
+        flex-direction: column;
+		align-items: center;
         font-family: 'EBGaramond';
         color: #fbf1c7;
-    }
-
-    @media screen and (width <= 1250px) {
-        .maincontainer {
-            height: unset !important;
-            overflow-y: auto;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        header {
-            height: unset !important;
-            width: 100% !important;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        main {
-            width: 80% !important;
-            max-width: 600px !important;
-        }
-
-        .namecontainer {
-            align-self: auto !important;
-            margin-top: 50px;
-            left: auto !important;
-            bottom: auto !important;
-            font-size: 60px !important;
-        }
-
-        .content {
-            width: 100% !important;
-            overflow: unset !important;
-        }
     }
 
     header {
         position: relative;
         display: flex;
 
-        width: 50%;
-        height: 100%;
+		flex-direction: column;
+		align-items: center;
+
+        width: 100%;
     }
 
     .namecontainer {
         display: flex;
         position: relative;
 
-        align-self: end;
-        bottom: 50px;
-        left: 50px;
+		margin-top: 50px;
+        align-items: center;
 
-        font-size: 96px;
+        bottom: auto;
+        left: auto;
+
+        font-size: 60px;
     }
+
+	.namecontainer .icon {
+	  display: flex;
+	  position: relative;
+	}
 
     .content {
         display: flex;
         position: relative;
-        width: 50%;
+        width: 100%;
         margin-block: 50px;
 
         flex-flow: column;
         align-items: center;
 
-        overflow-y: auto;
-        overflow-x: hidden;
     }
 
     .sections {
@@ -210,4 +186,3 @@
         border-bottom-color: #fbf1c7 !important;
     }
 </style>
-

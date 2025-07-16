@@ -35,14 +35,14 @@
     ];
 </script>
 
-<span class="blinky">
-    <a href="https://blinkies.cafe" target="_blank">
-        <img
-            src="https://blinkies.cafe/b/display/blinkiesCafe-badge.gif"
-            alt="blinkies.cafe | make your own blinkies!"
-        />
-    </a>
-</span>
+<div class="blinky">
+  <a title="250KB Club page" href="https://250kb.club/www-pandadiestro-xyz">
+	<img
+	  alt="this website is a proud member of the 250KB Club"
+	  src="https://250kb.club/simple_badge_dark.png"
+	  />
+  </a>
+</div>
 <div class="blinkies">
     {#each blinkies as blinky}
         <span class="blinky">

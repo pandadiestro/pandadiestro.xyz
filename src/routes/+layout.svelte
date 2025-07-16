@@ -121,7 +121,7 @@
         bottom: auto;
         left: auto;
 
-        font-size: 60px;
+        font-size: 55px;
     }
 
 	.namecontainer .icon {
